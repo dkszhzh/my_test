@@ -100,18 +100,18 @@ jobs:
             --push \
             -t ${{ env.REGISTRY }}/${{ github.actor }}/practice/${{ env.PROJECT_DIR }}:latest
 
-  deploy:
-    runs-on: ubuntu-latest
-    needs:
-      - test
-      - build
-    env:
-      PROJECT_DIR: basic-ci
+  # deploy:
+  #   runs-on: ubuntu-latest
+  #   needs:
+  #     - test
+  #     - build
+  #   env:
+  #     PROJECT_DIR: basic-ci
 
-    steps:
-      - uses: actions/checkout@v2
+  #   steps:
+  #     - uses: actions/checkout@v2
 
-      - name: Deploy application
-        run: |
-          cd ${{ env.PROJECT_DIR }}
-          echo "Deploying version ${{ github.event.inputs.version }} to ${{ github.event.inputs.environment }} environment"
+  #     - name: Deploy application
+  #       run: |
+  #         cd ${{ env.PROJECT_DIR }}
+  #         echo "Deploying version ${{ github.event.inputs.version }} to ${{ github.event.inputs.environment }} environment"
